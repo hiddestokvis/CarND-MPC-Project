@@ -8,7 +8,7 @@ The vehicle model used for this project is the bicycle model. It's a relatively 
 
 The model is decribed as followed:
 
-![vehicle_model.png]
+![vehicle model](./vehicle_model.png)
 
 - ```x``` & ```y``` are the position of the car
 - ```psi``` is the heading of the car
