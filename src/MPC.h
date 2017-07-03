@@ -6,15 +6,29 @@
 
 using namespace std;
 
+const int latency = 2;
+
+struct Solution {
+  vector<double> x;
+  vector<double> y;
+  vector<double> psi;
+  vector<double> v;
+  vector<double> cte;
+  vector<double> epsi;
+  vector<double> delta;
+  vector<double> a;
+};
+
 class MPC {
  public:
   MPC();
+  double deg2rad(double deg);
 
   virtual ~MPC();
 
   // Solve the model given an initial state and polynomial coefficients.
   // Return the first actuatotions.
-  vector<double> Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs);
+  Solution Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs);
 };
 
 #endif /* MPC_H */
