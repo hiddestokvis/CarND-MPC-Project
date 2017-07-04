@@ -122,6 +122,8 @@ int main() {
           */
           double steer_value = solution.delta.at(2);
           double throttle_value = solution.a.at(2);
+          mpc.delta_prev = steer_value;
+          mpc.a_prev = throttle_value;
 
           json msgJson;
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.

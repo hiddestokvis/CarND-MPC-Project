@@ -165,9 +165,17 @@ Solution MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
     vars_lowerbound[i] = -deg2rad(25);
     vars_upperbound[i] = deg2rad(25);
   }
+  for (int i = delta_start; i < delta_start + 2; i++) {
+    vars_lowerbound[i] = delta_prev;
+    vars_upperbound[i] = delta_prev;
+  }
   for (int i = a_start; i < n_vars; i++) {
     vars_lowerbound[i] = -1.0;
     vars_upperbound[i] = 1.0;
+  }
+  for (int i = a_start; i < a_start + 2; i++) {
+    vars_lowerbound[i] = a_prev;
+    vars_upperbound[i] = a_prev;
   }
   // Lower and upper limits for the constraints
   // Should be 0 besides initial state.
